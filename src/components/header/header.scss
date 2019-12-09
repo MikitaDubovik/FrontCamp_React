@@ -1,0 +1,54 @@
+$button-color: #f65261;
+$backgroud-toggle-color: #424242;
+$background-body-colot: #232323;
+$separator-color: #555555;
+$text-color: #ffffff;
+$fonts: "Goudy Old Style";
+$border-radius: 5px;
+$margin-left: 8%;
+$margin: 3px;
+
+* {
+  font-family: $fonts;
+  color: $text-color;
+}
+
+* .head .mainHade {
+  margin: $margin;
+  margin-left: $margin-left;
+}
+
+h2 {
+  text-align: left;
+}
+
+a.active {
+  background: $button-color !important;
+}
+
+.toggle a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: $border-radius;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: rgba(66, 66, 66, 0.1);
+}
+
+.head {
+  background-image: url("https://sun9-68.userapi.com/c834103/v834103024/b0702/XjmVemEGH0E.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+input {
+  height: 24px;
+  width: 80%;
+  border-radius: $border-radius;
+  align-content: left;
+  margin: $margin;
+  background-color: rgba(66, 66, 66, 0.2);
+}

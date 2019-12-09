@@ -1,0 +1,9 @@
+$button-color: #f65261;
+$border-radius: 5px;
+
+button {
+    height: 30px;
+    width: 150px;
+    background: $button-color;
+    border-radius: $border-radius;
+}
