@@ -1,29 +1,30 @@
-$button-color: #f65261;
-$backgroud-toggle-color: #424242;
-$background-body-colot: #232323;
-$separator-color: #555555;
-$text-color: #ffffff;
-$fonts: "Goudy Old Style";
-$border-radius: 5px;
-$margin-left: 8%;
-$margin: 3px;
+@import "../../index.scss";
 
 * {
   font-family: $fonts;
   color: $text-color;
 }
 
-* .head .mainHade {
-  margin: $margin;
-  margin-left: $margin-left;
+* .head .mainHade, h2{
+    margin: 0 $margin-right 10px $margin-left !important;
 }
 
 h2 {
   text-align: left;
 }
 
+h4 {
+  display: inline-block;
+  margin: inherit;
+}
+
 a.active {
   background: $button-color !important;
+}
+
+.toggle {
+  display: inline-block;
+  margin: inherit;
 }
 
 .toggle a {
@@ -48,7 +49,8 @@ input {
   height: 24px;
   width: 80%;
   border-radius: $border-radius;
+  border-width: 1px;
   align-content: left;
-  margin: $margin;
   background-color: rgba(66, 66, 66, 0.2);
+  margin: inherit;
 }
