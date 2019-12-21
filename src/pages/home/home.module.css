@@ -9,13 +9,17 @@
 }
 
 .header {
-  height: 200px;
+  height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://sun9-68.userapi.com/c834103/v834103024/b0702/XjmVemEGH0E.jpg');
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .contentSection {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   background-color: #232323;
 }
 
