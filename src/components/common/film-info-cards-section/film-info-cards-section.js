@@ -20,16 +20,10 @@ export const FilmInfoCardsSection = props => {
 
   return (
     <>
-      <TabButtonSection
-        sectionTitle={TabButtonSectionTitles.SORT_BY}
-        tabButtonsTitles={[
-          TabButtonSectionTitles.REALISE_DATE,
-          TabButtonSectionTitles.RAITING
-        ]}
-        onClickTabButton={onClickTabButton}
-      />
-      {filmsInfoCards && (
+      {filmsInfoCards ? (
         <div className={styles.container}>{filmsInfoCards}</div>
+      ) : (
+        <p className={styles.noFilmsMessage}>No films found</p>
       )}
     </>
   );

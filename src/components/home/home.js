@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Footer, FilmInfoCardsSection } from '../common';
+import {
+  Footer,
+  FilmInfoCardsSection,
+  TabButtonSection,
+  TabButtonSectionTitles
+} from '../common';
 import { Header } from './header';
 import styles from './home.module.css';
 
-export const Home = props => {
-  const {
-    filmsInfo,
-    onClickTabButton,
-    textInputValue,
-    changeTextInputValue,
-    onClickSubmitButton
-  } = props;
-
+export const Home = ({
+  filmsInfo,
+  onClickTabButton,
+  textInputValue,
+  changeTextInputValue,
+  onClickSubmitButton
+}) => {
   return (
     <div className={styles.container}>
       <Header
@@ -22,6 +25,16 @@ export const Home = props => {
         textInputValue={textInputValue}
         changeInputTextFieldValue={changeTextInputValue}
       />
+      <div className={styles.sortingSection}>
+        <TabButtonSection
+          sectionTitle={TabButtonSectionTitles.SORT_BY}
+          tabButtonsTitles={[
+            TabButtonSectionTitles.REALISE_DATE,
+            TabButtonSectionTitles.RAITING
+          ]}
+          onClickTabButton={onClickTabButton}
+        />
+      </div>
       <FilmInfoCardsSection
         filmsInfo={filmsInfo}
         onClickTabButton={onClickTabButton}
