@@ -10,7 +10,7 @@ export class FilmDetailsContainer extends Component {
   fetchData = async (filmId) => {
     try {
       const filmDetail = await getFilmById(filmId);
-      console.log(filmDetail.genres[0]);
+
       const { data: filmsByGenre } = await getFilmsByQuery({
         searchBy: searchBy.GENRES,
         search: filmDetail.genres[0],
@@ -18,8 +18,9 @@ export class FilmDetailsContainer extends Component {
 
       store.dispatch(getFilmDetails(filmDetail));
       store.dispatch(getFilms(filmsByGenre));
-    } catch (error) {}
+    } catch (error) { }
   };
+  
   async componentDidMount() {
     await this.fetchData(this.props.match.params.filmId);
   }
@@ -39,7 +40,7 @@ const mapStateToProps = (state) => ({
   filmsList: state.films,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => {};
+const mapDispatchToProps = (dispatch, ownProps) => { };
 
 export const filmDetailsContainer = connect(
   mapStateToProps,

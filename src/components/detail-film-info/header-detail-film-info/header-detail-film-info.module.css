@@ -57,7 +57,7 @@
 .durationAndReleaseYear {
   display: flex;
   color: #f65261;
-  font-size: 28px;
+  font-size: 26px;
   width: 35%;
   justify-content: space-between;
 }

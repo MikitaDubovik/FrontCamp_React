@@ -10,22 +10,14 @@ export const sortBy = {
   RATING: 'vote_count',
 };
 
-export const queryParams = {
-  SEARCH_BY: 'searchBy',
-  SEARCH: 'search',
-  SORT_BY: 'sortBy',
-  SORT_ORDER: 'sortOrder',
-  FILTER: 'filter',
-  OFFSET: 'offset',
-  LIMIT: 'limit',
-};
-
 const FILMS_BY_ID_PATH = 'https://reactjs-cdp.herokuapp.com/movies';
 
 export const getFilmsByQuery = (searchParams) => {
-  const queryString = Object.entries(searchParams)
-    .map(([key, value]) => `${key}=${value}`)
+  let queryString = Object.entries(searchParams)
+    .map(([key, value]) => `${key}=${value.toLowerCase()}`)
     .join('&');
+  queryString = queryString.replace('raiting', 'vote_average');
+  queryString = queryString.replace('genre', 'genres');
   const url = `${FILMS_BY_ID_PATH}?${queryString}`;
   return request(url);
 };

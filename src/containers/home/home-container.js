@@ -24,9 +24,6 @@ class HomeContainer extends Component {
 
   clickSubmitButton = async () => {
     const { textInputValue, searchBy, sortBy } = this.props;
-    console.log(textInputValue);
-    console.log(searchBy);
-    console.log(sortBy);
     await this.fetchData({ search: textInputValue, searchBy, sortBy });
   };
 

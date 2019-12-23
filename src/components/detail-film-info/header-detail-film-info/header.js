@@ -13,7 +13,7 @@ export const DetailFilmInfoHeader = props => {
   const {
     poster_path,
     title,
-    vote_count,
+    vote_average,
     runtime = 200,
     release_date,
     overview
@@ -34,11 +34,11 @@ export const DetailFilmInfoHeader = props => {
         <div className={styles.generalInfo}>
           <div className={styles.titleAndRaiting}>
             <Title content={title} />
-            <p className={styles.raiting}>{vote_count}</p>
+            <p className={styles.raiting}>{vote_average}</p>
           </div>
           <div className={styles.durationAndReleaseYear}>
-            <p className={styles.releaseYear}>{releaseYear}</p>
-            <p className={styles.duration}>{!runtime && '200'} min</p>
+            <p className={styles.releaseYear}>{releaseYear} year</p>
+            <p className={styles.duration}>{runtime} min</p>
           </div>
           <p className={styles.description}>{overview}</p>
         </div>

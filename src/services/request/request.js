@@ -4,7 +4,7 @@ export const request = async (url, method = httpMethods.GET, requestData) => {
   const requestBody = {
     body: JSON.stringify(requestData),
     headers: {
-      'Content-Type': 'text/plain',
+      'Content-Type': 'application/json',
     },
   };
 
