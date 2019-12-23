@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { Home } from '../../components';
 import { FilmAPI, searchBy, sortBy } from '../../services';
@@ -25,6 +24,9 @@ class HomeContainer extends Component {
 
   clickSubmitButton = async () => {
     const { textInputValue, searchBy, sortBy } = this.props;
+    console.log(textInputValue);
+    console.log(searchBy);
+    console.log(sortBy);
     await this.fetchData({ search: textInputValue, searchBy, sortBy });
   };
 
@@ -43,25 +45,6 @@ class HomeContainer extends Component {
   }
 }
 
-HomeContainer.propTypes = {
-  filmsList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string,
-      tagline: PropTypes.string,
-      vote_average: PropTypes.number,
-      vote_count: PropTypes.number,
-      release_date: PropTypes.string,
-      poster_path: PropTypes.string,
-      overview: PropTypes.string,
-      budget: PropTypes.number,
-      revenue: PropTypes.number,
-      runtime: PropTypes.number,
-      genres: PropTypes.arrayOf(PropTypes.string),
-    }),
-  ),
-};
-
 const mapStateToProps = (state) => ({
   filmsList: state.films,
   textInputValue: state.textInputValue,
@@ -75,8 +58,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(getTextInputValue(event.target.value));
     },
     clickTabButton: () => {
+      //Add check what kind of button - Search by or sort by
       dispatch(getSortType(sortBy.RELEASE_DATE));
-    },
+    }
   };
 };
 

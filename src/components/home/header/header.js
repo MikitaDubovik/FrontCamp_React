@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
   Logo,
@@ -36,19 +35,13 @@ export const Header = props => {
         <TabButtonSection
           sectionTitle={TabButtonSectionTitles.SEARCH_BY}
           tabButtonsTitles={[
-            TabButtonSectionTitles.GENRE,
-            TabButtonSectionTitles.TITLE
+            TabButtonSectionTitles.TITLE,
+            TabButtonSectionTitles.GENRE            
           ]}
           onClickTabButton={onClickTabButton}
+          type={TabButtonSectionTitles.SEARCH_BY}
         />
       </div>
     </div>
   );
-};
-
-Header.propTypes = {
-  onClickTabButton: PropTypes.func,
-  onClickSubmitButton: PropTypes.func,
-  changeInputTextFieldValue: PropTypes.func,
-  textInputValue: PropTypes.string
 };

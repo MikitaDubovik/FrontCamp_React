@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { SearchInput } from './search-input';
 import { SearchButton } from './search-button';
@@ -17,10 +16,4 @@ export const SearchForm = props => {
       <SearchButton onClickButton={onClickSubmitButton} />
     </div>
   );
-};
-
-SearchForm.propTypes = {
-  onChangeTextInputValue: PropTypes.func,
-  textInputValue: PropTypes.string,
-  onClickSubmitButton: PropTypes.func
 };

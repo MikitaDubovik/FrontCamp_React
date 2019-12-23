@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import styles from "./search-button.module.css";
 
@@ -11,8 +10,4 @@ export const SearchButton = props => {
       SEARCH
     </button>
   );
-};
-
-SearchButton.propTypes = {
-  onClickButton: PropTypes.func.isRequired
 };

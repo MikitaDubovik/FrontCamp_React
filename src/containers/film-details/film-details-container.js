@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { store } from '../../store';
 import { DetailFilmInfo } from '../../components';
@@ -34,39 +33,6 @@ export class FilmDetailsContainer extends Component {
     return <h1>Spinner</h1>;
   }
 }
-
-FilmDetailsContainer.propTypes = {
-  filmInfo: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    tagline: PropTypes.string,
-    vote_average: PropTypes.number,
-    vote_count: PropTypes.number,
-    release_date: PropTypes.string,
-    poster_path: PropTypes.string,
-    overview: PropTypes.string,
-    budget: PropTypes.number,
-    revenue: PropTypes.number,
-    runtime: PropTypes.number,
-    genres: PropTypes.arrayOf(PropTypes.string),
-  }),
-  filmsTheSameGenre: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string,
-      tagline: PropTypes.string,
-      vote_average: PropTypes.number,
-      vote_count: PropTypes.number,
-      release_date: PropTypes.string,
-      poster_path: PropTypes.string,
-      overview: PropTypes.string,
-      budget: PropTypes.number,
-      revenue: PropTypes.number,
-      runtime: PropTypes.number,
-      genres: PropTypes.arrayOf(PropTypes.string),
-    }),
-  ),
-};
 
 const mapStateToProps = (state) => ({
   filmInfo: state.filmDetails,
