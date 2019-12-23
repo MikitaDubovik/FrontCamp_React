@@ -3,18 +3,21 @@ import PropTypes from 'prop-types';
 
 import { Header } from './header-detail-film-info';
 import styles from './detail-film-info.module.css';
-import { FilmInfoCardsSection, Footer } from '../common';
+import { FilmInfoCardsSection, Footer, FilmsCardsSummary, FilmsCardSummaryType } from '../common';
 
-export const DetailFilmInfo = props => {
+export const DetailFilmInfo = (props) => {
   const { filmsTheSameGenre, filmInfo } = props;
 
   return (
     <div className={styles.container}>
       <Header filmInfo={filmInfo} />
-      <FilmInfoCardsSection
-        filmsInfo={filmsTheSameGenre}
-        onClickTabButton={() => {}}
-      />
+      <div className={styles.filmsCardsSortingSummary}>
+        <FilmsCardsSummary
+          summaryType={FilmsCardSummaryType.GENRE}
+          filmsSummary={filmInfo.genres[0]}
+        />
+      </div>
+      <FilmInfoCardsSection filmsInfo={filmsTheSameGenre} onClickTabButton={() => {}} />
       <Footer />
     </div>
   );
@@ -33,7 +36,7 @@ DetailFilmInfo.propTypes = {
     budget: PropTypes.number,
     revenue: PropTypes.number,
     runtime: PropTypes.number,
-    genres: PropTypes.arrayOf(PropTypes.string)
+    genres: PropTypes.arrayOf(PropTypes.string),
   }),
   filmsTheSameGenre: PropTypes.arrayOf(
     PropTypes.shape({
@@ -48,7 +51,7 @@ DetailFilmInfo.propTypes = {
       budget: PropTypes.number,
       revenue: PropTypes.number,
       genres: PropTypes.arrayOf(PropTypes.string),
-      runtime: PropTypes.number
-    })
-  )
+      runtime: PropTypes.number,
+    }),
+  ),
 };

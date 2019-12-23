@@ -5,7 +5,9 @@ import {
   Footer,
   FilmInfoCardsSection,
   TabButtonSection,
-  TabButtonSectionTitles
+  TabButtonSectionTitles,
+  FilmsCardsSummary,
+  FilmsCardSummaryType,
 } from '../common';
 import { Header } from './header';
 import styles from './home.module.css';
@@ -15,7 +17,7 @@ export const Home = ({
   onClickTabButton,
   textInputValue,
   changeTextInputValue,
-  onClickSubmitButton
+  onClickSubmitButton,
 }) => {
   return (
     <div className={styles.container}>
@@ -25,20 +27,18 @@ export const Home = ({
         textInputValue={textInputValue}
         changeInputTextFieldValue={changeTextInputValue}
       />
-      <div className={styles.sortingSection}>
+      <div className={styles.filmsCardsSortingSummary}>
+        <FilmsCardsSummary
+          filmsSummary={`${filmsInfo.length}`}
+          summaryType={FilmsCardSummaryType.FILMS_AMOUNT}
+        />
         <TabButtonSection
           sectionTitle={TabButtonSectionTitles.SORT_BY}
-          tabButtonsTitles={[
-            TabButtonSectionTitles.REALISE_DATE,
-            TabButtonSectionTitles.RAITING
-          ]}
+          tabButtonsTitles={[TabButtonSectionTitles.REALISE_DATE, TabButtonSectionTitles.RAITING]}
           onClickTabButton={onClickTabButton}
         />
       </div>
-      <FilmInfoCardsSection
-        filmsInfo={filmsInfo}
-        onClickTabButton={onClickTabButton}
-      />
+      <FilmInfoCardsSection filmsInfo={filmsInfo} onClickTabButton={onClickTabButton} />
       <Footer />
     </div>
   );
@@ -58,11 +58,11 @@ Home.propTypes = {
       budget: PropTypes.number,
       revenue: PropTypes.number,
       genres: PropTypes.arrayOf(PropTypes.string),
-      runtime: PropTypes.number
-    })
+      runtime: PropTypes.number,
+    }),
   ),
   onClickTabButton: PropTypes.func,
   textInputValue: PropTypes.string,
   changeTextInputValue: PropTypes.func,
-  onClickSubmitButton: PropTypes.func
+  onClickSubmitButton: PropTypes.func,
 };
