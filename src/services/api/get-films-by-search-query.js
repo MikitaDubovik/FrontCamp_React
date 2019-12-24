@@ -18,6 +18,6 @@ export const getFilmsByQuery = (searchParams) => {
     .join('&');
   queryString = queryString.replace('raiting', 'vote_average');
   queryString = queryString.replace('genre', 'genres');
-  const url = `${FILMS_BY_ID_PATH}?${queryString}`;
+  const url = `${FILMS_BY_ID_PATH}?${queryString}&sortOrder=desc`;
   return request(url);
 };

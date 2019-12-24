@@ -20,7 +20,7 @@ export class FilmDetailsContainer extends Component {
       store.dispatch(getFilms(filmsByGenre));
     } catch (error) { }
   };
-  
+
   async componentDidMount() {
     await this.fetchData(this.props.match.params.filmId);
   }
@@ -44,5 +44,5 @@ const mapDispatchToProps = (dispatch, ownProps) => { };
 
 export const filmDetailsContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
 )(FilmDetailsContainer);

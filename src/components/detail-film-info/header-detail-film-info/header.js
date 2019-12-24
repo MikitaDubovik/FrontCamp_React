@@ -14,13 +14,13 @@ export const DetailFilmInfoHeader = props => {
     poster_path,
     title,
     vote_average,
-    runtime = 200,
+    runtime,
     release_date,
     overview
   } = props.filmInfo;
 
   const releaseYear = getReleaseYear(release_date);
-
+  let normilizeRuntime = runtime != null ? runtime : 200;
   return (
     <div className={styles.container}>
       <div className={styles.logoAndSearchButtonContainer}>
@@ -38,7 +38,7 @@ export const DetailFilmInfoHeader = props => {
           </div>
           <div className={styles.durationAndReleaseYear}>
             <p className={styles.releaseYear}>{releaseYear} year</p>
-            <p className={styles.duration}>{runtime} min</p>
+            <p className={styles.duration}>{normilizeRuntime} min</p>
           </div>
           <p className={styles.description}>{overview}</p>
         </div>

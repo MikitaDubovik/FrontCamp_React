@@ -55,7 +55,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(getTextInputValue(event.target.value));
     },
     clickTabButton: () => {
-      //Add check what kind of button - Search by or sort by
       dispatch(getSortType(sortBy.RELEASE_DATE));
     }
   };

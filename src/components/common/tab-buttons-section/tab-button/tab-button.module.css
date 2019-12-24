@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+.main:hover{
+  cursor: grab;
+}
+
 .left {
   composes: main;
   border-radius: 5px 0 0 5px;
