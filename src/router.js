@@ -4,10 +4,11 @@ import { Switch, Route } from 'react-router-dom';
 import { FilmDetailsContainer, HomeContainer } from './containers';
 import { Routes } from './services';
 import { ErrorBoundary } from './components';
+import { NotFound } from './components'
 
 const NoMatchPage = () => {
   return (
-    <h3>404 - Not found</h3>
+    <NotFound />
   );
 };
 
