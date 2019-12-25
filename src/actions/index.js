@@ -1,6 +1,8 @@
-export { getFilmDetails } from './film-details-action';
+export { getFilmDetailsCompleted, getFilmDetailsStart, getFilmDetailsError } from './film-details-action';
 export {
-  getFilms,
+  getFilmsStart,
+  getFilmsCompleted,
+  getFilmsError,
   clearTextInputValue,
   getSearchType,
   getSortType,

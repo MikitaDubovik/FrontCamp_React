@@ -1,4 +1,4 @@
-import { request } from '../request';
+import { request } from '../../request';
 
 export const searchBy = {
   GENRES: 'genres',
@@ -19,5 +19,6 @@ export const getFilmsByQuery = (searchParams) => {
   queryString = queryString.replace('raiting', 'vote_average');
   queryString = queryString.replace('genre', 'genres');
   const url = `${FILMS_BY_ID_PATH}?${queryString}&sortOrder=desc`;
+  console.log(url);
   return request(url);
 };

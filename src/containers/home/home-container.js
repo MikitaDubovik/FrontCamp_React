@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { Home } from '../../components';
-import { FilmAPI, searchBy, sortBy } from '../../services';
-import { store } from '../../store';
-import { getFilms, getTextInputValue, getSortType } from '../../actions';
+import { searchBy, sortBy } from '../../services';
+import { getTextInputValue, getSortType } from '../../actions';
+import { fetchFilmsData } from '../../services/api/helpers/films-data-helper';
 
 class HomeContainer extends Component {
-  fetchData = async (searchParams) => {
-    try {
-      const { data: films } = await FilmAPI.getFilmsByQuery(searchParams);
-      store.dispatch(getFilms(films));
-    } catch (error) {}
-  };
 
-  async componentDidMount() {
-    await this.fetchData({
-      searchBy: searchBy.TITLE,
-      sortBY: sortBy.RELEASE_DATE,
-      textInputValue: '',
-    });
+  componentDidMount() {
+    if (this.props.match.params.query) {
+      var keyValue = {};
+      let searchParams = this.props.match.params.query.split('&');
+      searchParams.forEach(element => {
+        let el = element.split('=');
+        keyValue[el[0]] = el[1];
+      });
+
+      fetchFilmsData(keyValue);
+    } else {
+      fetchFilmsData({
+        searchBy: searchBy.TITLE,
+        sortBY: sortBy.RELEASE_DATE,
+        textInputValue: '',
+      });
+    }
   }
 
   clickSubmitButton = async () => {
     const { textInputValue, searchBy, sortBy } = this.props;
-    await this.fetchData({ search: textInputValue, searchBy, sortBy });
+    await fetchFilmsData({ search: textInputValue, searchBy, sortBy });
   };
 
   render() {
+
     const { filmsList, textInputValue, changeTextInputValue, clickTabButton } = this.props;
 
     return (

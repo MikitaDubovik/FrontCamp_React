@@ -4,7 +4,6 @@ import styles from './film-info-card.module.css';
 import { concatGenres, getReleaseYear } from '../../../../utils';
 import { Poster } from '../../poster';
 import { Link } from 'react-router-dom';
-import { Routes } from '../../../../services';
 import { generatePathToFilmDetails } from '../../../../services/routes';
 
 export const FilmInfoCard = props => {

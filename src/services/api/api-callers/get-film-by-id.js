@@ -1,4 +1,4 @@
-import { request } from '../request'
+import { request } from '../../request'
 
 const FILMS_BY_ID_PATH = 'https://reactjs-cdp.herokuapp.com/movies/'
 

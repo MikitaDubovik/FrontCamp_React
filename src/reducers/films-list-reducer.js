@@ -1,13 +1,17 @@
 import {
-  ADD_FILMS, GET_SEARCH_TYPE, GET_TEXT_INPUT_VALUE, GET_SORT_TYPE,
+  ADD_FILMS_START, ADD_FILMS_COMPLETED, ADD_FILMS_ERROR
 } from '../constants';
 
 const initialfilmListReducer = [];
 
 export const filmListReducer = function (state = initialfilmListReducer, action) {
   switch (action.type) {
-    case ADD_FILMS:
+    case ADD_FILMS_START:
+      return state;
+    case ADD_FILMS_COMPLETED:
       return [...action.films];
+    case ADD_FILMS_ERROR:
+      return state;
   }
   return state;
 };
