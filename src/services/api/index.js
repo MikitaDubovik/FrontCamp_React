@@ -1,1 +1,1 @@
-export { getFilmById, getFilmsByQuery, searchBy, sortBy } from './api-callers';
+export { getFilmById, getFilmsByQuery, searchBy, sortBy, generateUrl } from './api-callers';

@@ -12,12 +12,19 @@ export const sortBy = {
 
 const FILMS_BY_ID_PATH = 'https://reactjs-cdp.herokuapp.com/movies';
 
-export const getFilmsByQuery = (searchParams) => {
+export const generateUrl = (searchParams) => {
   let queryString = Object.entries(searchParams)
     .map(([key, value]) => `${key}=${value.toLowerCase()}`)
     .join('&');
   queryString = queryString.replace('raiting', 'vote_average');
-  queryString = queryString.replace('genre', 'genres');
-  const url = `${FILMS_BY_ID_PATH}?${queryString}&sortOrder=desc`;
+  if (!queryString.includes('genres')) {
+    queryString = queryString.replace('genre', 'genres');
+  }
+  return `${FILMS_BY_ID_PATH}?${queryString}`;
+}
+
+export const getFilmsByQuery = (searchParams) => {
+  const url = generateUrl(searchParams) + '&sortOrder=desc';
+  console.log(url);
   return request(url);
 };

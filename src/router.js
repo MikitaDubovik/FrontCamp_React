@@ -13,7 +13,7 @@ export class Router extends React.Component {
         <Switch>
           <Route path={Routes.home} component={HomeContainer} exact />
           <Route path={Routes.filmDetail} component={FilmDetailsContainer} exact />
-          <Route path={Routes.search} component={HomeContainer} exact/>
+          <Route path={Routes.search} component={HomeContainer} exact />
           <Route path={Routes.error} component={HomeContainer} exact />
           <Route component={NotFound} />
         </Switch>
