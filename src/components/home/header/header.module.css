@@ -1,0 +1,25 @@
+.common {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  min-height: 300px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://miro.medium.com/max/1200/1*jvgPoIUvsURHLLUL2kQQHQ.jpeg');
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.searchContainer {
+  composes: common;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+  min-height: 200px;
+}
+
+.logoContainer {
+  margin-left: 40px;
+  width: 50%;
+}
